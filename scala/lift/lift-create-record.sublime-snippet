@@ -1,0 +1,54 @@
+<snippet>
+  <content><![CDATA[
+package net.veact
+package ${4:usecase}
+package record
+
+import net.liftweb.json.JsonDSL._
+import net.liftweb.mongodb.record.field._
+
+import com.foursquare.index._
+import com.foursquare.rogue.LiftRogue._
+
+import net.veact.db.{ MongoIndex => _, _ }
+
+import net.veact.util._
+import net.veact.util.db._
+
+class ${1:Record} extends VeactRecord[${1:Record}] {
+  def meta = ${1:Record}
+
+  object ${5:field1} extends ${7:ObjectId}Field(this${8})
+  object ${6:field2} extends ${9:ObjectId}Field(this${10})
+  ${11}
+}
+
+object ${1:Record} extends ${1:Record}
+    with ${3:Asmc}DBMetaRecord[${1:Record}]
+    with ShardedCollection {
+  override val shardKey =
+    ShardingKeyBackgroundMongoIndex(
+      (${5:field1}.name -> 1) ~ (${6:field2}.name -> 1),
+      UNIQUE_INDEX
+    )
+
+  // format: OFF
+  override val indexes: List[net.veact.db.MongoIndex] = // our own
+    defaultIdIndex ::
+    shardKey ::
+    // BackgroundMongoIndex((${5:field1}.name -> 1) ~ (${6:field2}.name -> /*-*/1)) ::
+    Nil
+
+  override val mongoIndexList: List[MongoIndex[_]] = // the one from rogue
+    ${1:Record}.index(_.id, Asc) ::
+    ${1:Record}.index(_.${5:field1}, Asc, _.${6:field2}, Asc) ::
+    // ${1:Record}.index(_.${5:field1}, Asc, _.${6:field2}, Asc /*Desc*/) ::
+    Nil
+  // format: ON
+}
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>liftrecord</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.scala</scope>
+</snippet>
