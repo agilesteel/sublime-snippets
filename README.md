@@ -14,6 +14,6 @@ git clone https://github.com/agilesteel/sublime-snippets.git ~/.config/sublime-t
   </tr>
   <tr>
     <td>lift-create-record</td>
-    <td>__liftrecord__</td>
+    <td><strong>liftrecord</strong></td>
   </tr>
 </table>
