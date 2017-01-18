@@ -13,7 +13,7 @@ git clone https://github.com/agilesteel/sublime-snippets.git ~/.config/sublime-t
     <th>Tab Trigger</th>
   </tr>
   <tr>
-    <td>lift-create-record</td>
+    <td><a href="https://github.com/agilesteel/sublime-snippets/blob/master/scala/lift/lift-create-record.sublime-snippet">lift-create-record</a></td>
     <td><strong>liftrecord</strong></td>
   </tr>
 </table>
