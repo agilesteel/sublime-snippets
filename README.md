@@ -1,8 +1,11 @@
 ##Install/Update
 
 ```bash
-rm -rf ~/.config/sublime-text-3/Packages/User/agilesteel
-git clone https://github.com/agilesteel/sublime-snippets.git ~/.config/sublime-text-3/Packages/User/agilesteel
+source=https://github.com/agilesteel/sublime-snippets.git
+target=~/.config/sublime-text-3/Packages/User/agilesteel
+
+rm -rf $target
+git clone $source $target
 ```
 
 ##Use
