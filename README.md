@@ -4,8 +4,7 @@
 from=https://github.com/agilesteel/sublime-snippets.git
 to=~/.config/sublime-text-3/Packages/User/agilesteel
 
-rm -rf $to
-git clone $from $to
+rm -rf $to && git clone $from $to
 ```
 
 ##Use
