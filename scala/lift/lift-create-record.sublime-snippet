@@ -11,8 +11,7 @@ import net.liftweb.record.field._
 import com.foursquare.index._
 import com.foursquare.rogue.LiftRogue._
 
-import net.veact.db.{ MongoIndex => _, _ }
-
+import net.veact.db._
 import net.veact.util._
 import net.veact.util.db._
 
