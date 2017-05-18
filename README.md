@@ -1,4 +1,4 @@
-##Install/Update
+## Install/Update
 
 ```bash
 from=https://github.com/agilesteel/sublime-snippets.git
@@ -7,7 +7,9 @@ to=~/.config/sublime-text-3/Packages/User/agilesteel
 rm -rf $to && git clone $from $to
 ```
 
-##Use
+It does not hurt to restart sublime.
+
+## Use
 
 <table>
   <tr>
